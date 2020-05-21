@@ -1,19 +1,8 @@
-<h1>Ice Cream!</h1>
+<h1>Ice Cream!</h>
 
-
-<ul>
-  {{#each flavor}}
-  <li>{{name}}</li>
-  {{/each}}
-</ul>
-
-<h2>{{specific}}</h2>
+<h2>{{name}}</h2>
 
 <ul>
-  {{#each icecream}}
-  <li>{{price}}</li>
-  <li>{{awesomeness}}</li>
-  {{/each}}
+  <li>Price: ${{price}}</li>
+  <li>Awesomeness level: {{awesomeness}}</li>
 </ul>
-
-{{!-- ctrl shift g to open source control --}}

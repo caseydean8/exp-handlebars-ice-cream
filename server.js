@@ -20,23 +20,18 @@ const icecreams = [
 //Route that displays the name, price and awesomeness for that specific ice cream.
 app.get("/icecream/:name", (req, res) => {
   let name = req.params.name;
-  // cmd + k left/right to switch editors
-  let thing = [];
-  icecreams.forEach(flavor => {
+  icecreams.forEach((flavor, i) => {
     if (flavor.name === name) {
       console.log(flavor);
-      thing.push(flavor);
+      console.log(icecreams[i]);
+      return res.render("ice-cream", flavor)
     }
-  });
-  res.render("ice-cream", {
-    specific: name,
-    icecream: thing
   });
 })
 
 // /icecreams route loops over all the ice creams and displays them to the user.
 app.get("/icecreams", (req, res) => {
-  res.render("ice-cream", { flavor: icecreams } )
+  res.render("index", { flavor: icecreams } )
 });
 
 app.listen(PORT, () => console.log(`listening on http://localhost:${PORT}`));
