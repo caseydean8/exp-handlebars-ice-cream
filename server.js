@@ -17,9 +17,21 @@ const icecreams = [
   { name: "pistachio", price: 11, awesomeness: 15 }
 ];
 
-// * Using handlebars and express, create a route called `/icecream/:name`. When the route is hit, it will display the name, price and awesomeness for that specific ice cream.
+//Route that displays the name, price and awesomeness for that specific ice cream.
 app.get("/icecream/:name", (req, res) => {
   let name = req.params.name;
+  // cmd + k left/right to switch editors
+  let thing = [];
+  icecreams.forEach(flavor => {
+    if (flavor.name === name) {
+      console.log(flavor);
+      thing.push(flavor);
+    }
+  });
+  res.render("ice-cream", {
+    specific: name,
+    icecream: thing
+  });
 })
 
 // /icecreams route loops over all the ice creams and displays them to the user.
